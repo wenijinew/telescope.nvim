@@ -826,10 +826,8 @@ internal.man_pages = function(opts)
     if sysname == "darwin" then
       local major_version = tonumber(vim.fn.matchlist(uname.release, [[^\(\d\+\)\..*]])[2]) or 0
       return major_version >= 22 and { "apropos", "." } or { "apropos", " " }
-    elseif sysname == "freebsd" then
-      return { "apropos", "." }
     else
-      return { "apropos", "" }
+      return { "apropos", "." }
     end
   end)
   opts.entry_maker = opts.entry_maker or make_entry.gen_from_apropos(opts)
